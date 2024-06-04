@@ -1,6 +1,18 @@
+.card-columns{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  max-width: 54rem;
+  margin-left: 200px;
+}
+.card{
+  padding: 5px;
+}
+
+
 .estado-pendiente {
-  border: 1px solid #ffd900; /* Amarillo */
-  color: #ffd900;
+  border: 1px solid #a1a1a1; /* Amarillo */
+  color: #bebdbd;
 }
 
 /* Estilos para el estado "en proceso" */
@@ -16,21 +28,21 @@
 }
 
 .estado-pendiente-task {
-  border: 1px solid #ffd900; /* Amarillo */
-  color: #ffffff;
-  background-color: #fde24caf;
+  border: 1px solid #a1a1a1; /* Amarillo */
+  color: #8b8b8b;
+  background-color: #bebebe33;
 }
 
 /* Estilos para el estado "en proceso" */
 .estado-en-proceso-task {
   border: 1px solid #2dc3da; /* Azul claro */
-  color: #ffffff;
-  background-color: rgba(45, 212, 238, 0.795);
+  color: #20a5b9;
+  background-color: #39e2fc62;
 }
 
 /* Estilos para el estado "completada" */
 .estado-completada-task {
-  border: 1px solid #48c465bd; /* Verde */
-  color: #ffffff;
-  background-color: #48c465cc;
+  border: 1px solid #92f8aad0; /* Verde */
+  color: #29b100;
+  background-color: #15fd154d;
 }
