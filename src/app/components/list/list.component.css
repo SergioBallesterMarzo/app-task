@@ -1,0 +1,36 @@
+.estado-pendiente {
+  border: 1px solid #ffd900; /* Amarillo */
+  color: #ffd900;
+}
+
+/* Estilos para el estado "en proceso" */
+.estado-en-proceso {
+  border: 1px solid #2dc3da; /* Azul claro */
+  color: #2dc3da;
+}
+
+/* Estilos para el estado "completada" */
+.estado-completada {
+  border: 1px solid #48c465bd; /* Verde */
+  color: #48c465bd;
+}
+
+.estado-pendiente-task {
+  border: 1px solid #ffd900; /* Amarillo */
+  color: #ffffff;
+  background-color: #fde24caf;
+}
+
+/* Estilos para el estado "en proceso" */
+.estado-en-proceso-task {
+  border: 1px solid #2dc3da; /* Azul claro */
+  color: #ffffff;
+  background-color: rgba(45, 212, 238, 0.795);
+}
+
+/* Estilos para el estado "completada" */
+.estado-completada-task {
+  border: 1px solid #48c465bd; /* Verde */
+  color: #ffffff;
+  background-color: #48c465cc;
+}

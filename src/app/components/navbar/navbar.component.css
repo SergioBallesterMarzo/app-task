@@ -1,0 +1,40 @@
+.btn {
+  padding: .45rem 1.5rem .35rem;
+}
+
+.gradient-custom {
+  /* fallback for old browsers */
+  background: #309bff;
+
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-linear-gradient(to right, rgb(25, 122, 248), rgb(53, 167, 243) , rgb(163, 211, 243));
+
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: linear-gradient(to right, rgb(25, 122, 248), rgb(53, 167, 243) , rgb(163, 211, 243))
+}
+
+.navbar-collapse{
+  justify-content: center;
+}
+
+.navbar-brand img {
+  transition: transform 0.3s ease;
+}
+
+.navbar-brand img:hover {
+  transform: scale(1.1); /* Cambia el valor según tus preferencias */
+}
+
+@keyframes rotateImage {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.navbar-brand img {
+  animation: rotateImage 5s infinite linear; /* Cambia la duración y el estilo según tus preferencias */
+}
+

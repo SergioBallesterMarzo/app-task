@@ -1,0 +1,36 @@
+{
+  "tasks":[
+    {
+      "id": 1,
+      "name": "Completar informe mensual",
+      "status": "pendiente",
+      "employee": "Juan Pérez"
+    },
+    {
+      "id": 2,
+      "name": "Revisar código del proyecto",
+      "status": "en_proceso",
+      "employee": "María Gómez"
+    },
+    {
+      "id": 3,
+      "name": "Planificar reunión de equipo",
+      "status": "completada",
+      "employee": "Ana Rodríguez"
+    }
+  ],
+  "status":[
+    {
+    "id": 1,
+    "status": "pendiente"
+    },
+    {
+    "id": 1,
+    "status": "en_proceso"
+    },
+    {
+    "id": 1,
+    "status": "completada"
+    }
+  ]
+}

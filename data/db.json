@@ -1,0 +1,40 @@
+{
+  "tasks":[
+    {
+      "id": 1,
+      "name": "Completar informe mensual",
+      "status": "Pendiente",
+      "employee": "Juan Pérez"
+    },
+    {
+      "id": 2,
+      "name": "Revisar código del proyecto",
+      "status": "En proceso",
+      "employee": "María Gómez"
+    },
+    {
+      "id": 3,
+      "name": "Planificar reunión de equipo",
+      "status": "Completada",
+      "employee": "Ana Rodríguez"
+    },
+    {
+      "id": 4,
+      "name": "Completar informe mensual",
+      "status": "Pendiente",
+      "employee": "Juan Pérez"
+    },
+    {
+      "id": 5,
+      "name": "Revisar código del proyecto",
+      "status": "En proceso",
+      "employee": "María Gómez"
+    },
+    {
+      "id": 6,
+      "name": "Planificar reunión de equipo",
+      "status": "Completada",
+      "employee": "Ana Rodríguez"
+    }
+  ]
+}

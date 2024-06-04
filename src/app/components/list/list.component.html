@@ -1,0 +1,31 @@
+<div class="card-columns">
+<div class="card mb-3" style="max-width: 18rem;" *ngFor="let task of tasks" [ngClass]="{
+  'estado-pendiente': task.status === 'Pendiente',
+  'estado-en-proceso': task.status === 'En proceso',
+  'estado-completada': task.status === 'Completada'
+  }" cdkDrag>
+
+  <div class="card-header" [ngClass]="{
+      'estado-pendiente-task': task.status === 'Pendiente',
+      'estado-en-proceso-task': task.status === 'En proceso',
+      'estado-completada-task': task.status === 'Completada'
+    }">{{ task.status }}
+  </div>
+
+  <div class="card-body"[ngClass]="{
+      'estado-pendiente': task.status === 'Pendiente',
+      'estado-en-proceso': task.status === 'En proceso',
+      'estado-completada': task.status === 'Completada'
+    }"  >
+      <h5 class="card-title">{{task.name}}</h5>
+  </div>
+
+  <div class="card-footer bg-transparent "[ngClass]="{
+      'estado-pendiente': task.status === 'Pendiente',
+      'estado-en-proceso': task.status === 'En proceso',
+      'estado-completada': task.status === 'Completada'
+    }">{{task.employee}}
+  </div>
+
+</div>
+</div>
