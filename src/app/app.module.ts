@@ -13,6 +13,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { LayoutPageComponent } from './pages/layout-page/layout-page.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DragDropModule } from '@angular/cdk/drag-drop';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,9 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    DragDropModule
+    DragDropModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

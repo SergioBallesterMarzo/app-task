@@ -16,4 +16,9 @@ export class TasksService {
   getAllTasks$(): Observable<Task[]>{
     return this.http.get<Task[]>(`${this.URL}/tasks`)
   }
+
+  createTask$(task: Task): Observable<Task[]>{
+    return this.http.post<Task[]>(`${this.URL}/tasks`, task)
+  }
+
 }

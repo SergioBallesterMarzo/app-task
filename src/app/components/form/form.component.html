@@ -1,1 +1,44 @@
-<p>form works!</p>
+<h4>Nueva Tarea</h4>
+<hr>
+<form [formGroup]="formulario" (ngSubmit)="guardar()">
+  <div class="form-group">
+    <label for="status">Estado de la Tarea</label>
+    <select class="form-control form-select"
+            aria-label="Default select example"
+            formControlName="status"
+            required
+            [(ngModel)]="task.status"
+            >
+      <option  value="Pendiente">Pendiente</option>
+      <option  value="En proceso">En proceso</option>
+      <option  value="Completada">Completada</option>
+    </select>
+    <small class="text-danger">Debe de escoger un estado</small>
+  </div>
+
+  <div class="form-group">
+    <label for="name">Nombre de la Tarea</label>
+    <input type="text"
+           class="form-control"
+           formControlName="name"
+           placeholder="Tarea"
+           [(ngModel)]="task.name"
+           >
+    <small class="text-danger" >La tarea es obligatoria</small>
+  </div>
+
+  <div class="form-group">
+    <label for="employee">Persona asignada</label>
+    <input type="text"
+           class="form-control"
+           formControlName="employee"
+           placeholder="Empleado"
+           [(ngModel)]="task.employee"
+           >
+    <small class="text-danger">El nombre es obligatorio.</small>
+  </div>
+
+  <div style="display: flex; justify-content: center; align-items: center; height: 20vh;">
+    <button type="submit" class="btn btn-outline-primary">Guardar</button>
+  </div>
+</form>
