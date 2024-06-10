@@ -5,27 +5,16 @@
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <a class="navbar-brand">
-      <img src="/assets/task.png" alt="Bootstrap" width="30" height="24">
-    </a>
-
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
-        <a  class="nav-link"
-          routerLinkActive="active"
-          aria-current="page"
-          [routerLink]="['home']">Home</a>
-          <img src="/assets/home.png"  width="30" height="33">
-
         <a class="nav-link"
           routerLinkActive="active"
-          [routerLink]="['new']">Nueva Tarea</a>
-          <img src="/assets/addtask.png"  width="30" height="33">
-
-        <a class="nav-link"
-          routerLinkActive="active"
-          [routerLink]="['edit']">Editar Tarea</a>
-          <img src="/assets/modtask.png"  width="30" height="33">
+          [routerLink]="['new']">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2"/>
+          </svg>
+          Añadir Tarea
+        </a>
 
       </div>
 

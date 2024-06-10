@@ -1,36 +1,58 @@
 {
-  "tasks":[
+  "tasks": [
     {
-      "id": 1,
-      "name": "Completar informe mensual",
-      "status": "pendiente",
-      "employee": "Juan Pérez"
-    },
-    {
-      "id": 2,
+      "id": "1",
       "name": "Revisar código del proyecto",
-      "status": "en_proceso",
+      "status": "Pendiente",
       "employee": "María Gómez"
     },
     {
-      "id": 3,
-      "name": "Planificar reunión de equipo",
-      "status": "completada",
-      "employee": "Ana Rodríguez"
-    }
-  ],
-  "status":[
-    {
-    "id": 1,
-    "status": "pendiente"
+      "id": "2",
+      "name": "Revisar código del proyecto",
+      "status": "En proceso",
+      "employee": "María Gómez"
     },
     {
-    "id": 1,
-    "status": "en_proceso"
+      "id": "3",
+      "name": "Revisar código del proyecto",
+      "status": "Completada",
+      "employee": "María Gómez"
     },
     {
-    "id": 1,
-    "status": "completada"
+      "id": "44",
+      "name": "Revisar código del proyecto",
+      "status": "Pendiente",
+      "employee": "María Gómez"
+    },
+    {
+      "id": "5",
+      "name": "Revisar código del proyecto",
+      "status": "En proceso",
+      "employee": "María Gómez"
+    },
+    {
+      "id": "6",
+      "name": "Revisar código del proyecto",
+      "status": "Completada",
+      "employee": "María Gómez"
+    },
+    {
+      "id": "7",
+      "name": "Revisar código del proyecto",
+      "status": "Pendiente",
+      "employee": "María Gómez"
+    },
+    {
+      "id": "8",
+      "name": "Revisar código del proyecto",
+      "status": "En proceso",
+      "employee": "María Gómez"
+    },
+    {
+      "id": "9",
+      "name": "Revisar código del proyecto",
+      "status": "Completada",
+      "employee": "María Gómez"
     }
   ]
 }

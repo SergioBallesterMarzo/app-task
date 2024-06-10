@@ -1,6 +1,9 @@
-<h4>Nueva Tarea</h4>
+<h1 *ngIf="isEditRoute(); else newTask">Editar Tarea</h1>
+<ng-template #newTask>
+  <h1>Nueva Tarea</h1>
+</ng-template>
 <hr>
-<form [formGroup]="formulario" (ngSubmit)="guardar()">
+<form [formGroup]="formulario" (ngSubmit)="addTask()">
   <div class="form-group">
     <label for="status">Estado de la Tarea</label>
     <select class="form-control form-select"
@@ -13,7 +16,7 @@
       <option  value="En proceso">En proceso</option>
       <option  value="Completada">Completada</option>
     </select>
-    <small class="text-danger">Debe de escoger un estado</small>
+    <small class="text-danger" *ngIf="isValidField('status')">Debe de escoger un estado</small>
   </div>
 
   <div class="form-group">
@@ -24,7 +27,7 @@
            placeholder="Tarea"
            [(ngModel)]="task.name"
            >
-    <small class="text-danger" >La tarea es obligatoria</small>
+    <small class="text-danger" *ngIf="isValidField('name')">La tarea es obligatoria</small>
   </div>
 
   <div class="form-group">
@@ -35,10 +38,12 @@
            placeholder="Empleado"
            [(ngModel)]="task.employee"
            >
-    <small class="text-danger">El nombre es obligatorio.</small>
+    <small class="text-danger" *ngIf="isValidField('employee')">El nombre es obligatorio.</small>
   </div>
 
   <div style="display: flex; justify-content: center; align-items: center; height: 20vh;">
-    <button type="submit" class="btn btn-outline-primary">Guardar</button>
+    <button type="submit" class="btn" style="margin-right: 50px;" [disabled]="!formulario.valid">Guardar</button>
+
+    <button type="submit" class="btn" (click)="returntask()"  >Home</button>
   </div>
 </form>

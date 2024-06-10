@@ -9,6 +9,7 @@ const routes: Routes = [
       {  path:'home', component:LayoutPageComponent},
       {  path:'new', component:NewComponent},
       {  path:'edit', component:EditComponent},
+      {  path:':id', component:EditComponent},
       {  path:'**', redirectTo: 'home'},
 
 ];

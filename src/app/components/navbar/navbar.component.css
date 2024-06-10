@@ -4,37 +4,29 @@
 
 .gradient-custom {
   /* fallback for old browsers */
-  background: #309bff;
+  background: #5c5d5e;
 
   /* Chrome 10-25, Safari 5.1-6 */
-  background: -webkit-linear-gradient(to right, rgb(25, 122, 248), rgb(53, 167, 243) , rgb(163, 211, 243));
+  background: -webkit-linear-gradient(to right, rgb(22, 22, 22),rgb(105, 106, 107), rgb(174, 175, 175));
 
   /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  background: linear-gradient(to right, rgb(25, 122, 248), rgb(53, 167, 243) , rgb(163, 211, 243))
+  background: linear-gradient(to right, rgb(22, 22, 22),rgb(105, 106, 107), rgb(174, 175, 175));
 }
-
 .navbar-collapse{
-  justify-content: center;
+  justify-content:first baseline;
+}
+.navbar-collapse :hover{
+  color: rgb(10, 10, 10);
+  background-color: #ffffff;
+  box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+  transform: translateY(-2px);
+  border-radius: 15px;
 }
 
-.navbar-brand img {
-  transition: transform 0.3s ease;
-}
 
-.navbar-brand img:hover {
-  transform: scale(1.1); /* Cambia el valor según tus preferencias */
-}
 
-@keyframes rotateImage {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
 
-.navbar-brand img {
-  animation: rotateImage 5s infinite linear; /* Cambia la duración y el estilo según tus preferencias */
-}
+
+
+
 

@@ -1,28 +1,10 @@
 {
   "tasks": [
     {
-      "id": "1",
-      "name": "Completar informe mensual",
-      "status": "Pendiente",
-      "employee": "Juan Pérez"
-    },
-    {
-      "id": "2",
-      "name": "Revisar código del proyecto",
-      "status": "En proceso",
-      "employee": "María Gómez"
-    },
-    {
-      "id": "3",
-      "name": "Planificar reunión de equipo",
-      "status": "Completada",
-      "employee": "Ana Rodríguez"
-    },
-    {
       "id": "4",
-      "name": "Completar informe mensual",
-      "status": "Pendiente",
-      "employee": "Juan Pérez"
+      "name": "Revisar código del proyecto",
+      "status": "Completada",
+      "employee": "María Gómez"
     },
     {
       "id": "5",
@@ -32,14 +14,32 @@
     },
     {
       "id": "6",
-      "name": "Planificar reunión de equipo",
+      "name": "Revisar código del proyecto",
       "status": "Completada",
-      "employee": "Ana Rodríguez"
+      "employee": "María Gómez"
     },
     {
-      "id": "c7b7",
-      "name": "Añadir Formulario Reactivo",
-      "employee": "Sergio Ballester",
+      "id": "7",
+      "name": "Revisar código del proyecto",
+      "status": "Completada",
+      "employee": "María Gómez"
+    },
+    {
+      "id": "8",
+      "name": "Revisar código del proyecto",
+      "status": "En proceso",
+      "employee": "María Gómez"
+    },
+    {
+      "id": "9",
+      "name": "Revisar código del proyecto",
+      "status": "Completada",
+      "employee": "María Gómez"
+    },
+    {
+      "id": "bad9",
+      "name": "Bton cambiar estado",
+      "employee": "Sergio B",
       "status": "Pendiente"
     }
   ]
