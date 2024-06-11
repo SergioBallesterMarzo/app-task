@@ -1,9 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
+import { switchMap } from 'rxjs';
 import { Task} from 'src/app/interface/task';
 import { TasksService } from 'src/app/service/tasks.service';
+
 
 @Component({
   selector: 'app-form',
@@ -14,8 +16,7 @@ export class FormComponent implements OnInit {
   public tasks: Task[] = [];
   public formulario!: FormGroup;
 
-
-  task: Task = {
+task:Task ={
     id:'',
     status:'Pendiente' ,
     name: '',
@@ -28,7 +29,7 @@ export class FormComponent implements OnInit {
     private snackBar: MatSnackBar,
     private router: Router,
     private route: ActivatedRoute
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.formulario = this.formBuilder.group({
@@ -36,26 +37,60 @@ export class FormComponent implements OnInit {
       employee: ['', [Validators.required,Validators.minLength(3)]],
       status:   [ '' ,[ Validators.required]]
     });
+
+    if(!this.router.url.includes('/edit'))return;
+    this.route.params
+    .pipe(
+      switchMap(({id}) => this.taskService.getTaskById$(id))
+    )
+    .subscribe( (task) =>{
+      if(!task) return this.router.navigateByUrl('/');
+      this.formulario.patchValue(task);
+      return;
+    })
+  }
+
+
+  get currentTask(): Task{
+    const task = this.formulario.value as Task
+    return task;
+  }
+  onSubmit() {
+    if (this.formulario.invalid) {
+      console.log('El formulario no es válido. Verifica los campos.');
+      return;
+    }
+    if (!this.currentTask.id) {
+    this.taskService.updateTask$(this.currentTask).subscribe(
+      (response) => {
+        console.log('Tarea Actualizada', response);
+        this.showSnackbar('Tarea Actualizada', 'Cerrar');
+        this.router.navigate(['/home']);
+      },
+      (error) => {
+        console.error('Error al actualizar la tarea:', error);
+      }
+    );
+  }
   }
 
   addTask() {
-    if (this.formulario.valid) {
-      // Si el formulario es válido, envía la tarea al servicio
-      this.taskService.createTask$(this.formulario.value).subscribe(
-        (response) => {
-          console.log('Tarea creada:', response);
-        },
-        (error) => {
-          console.error('Error al crear la tarea:', error);
-        }
-      );
-    } else {
+    if (this.formulario.invalid) {
       console.log('El formulario no es válido. Verifica los campos.');
+      return;
     }
-    this.showSnackbar('Tarea creada', 'Cerrar');
-    this.router.navigate(['/home']);
+    // Si el formulario es válido, envía la tarea al servicio
+    this.taskService.createTask$(this.formulario.value).subscribe(
+      (response) => {
+        console.log('Tarea creada:', response);
+        this.showSnackbar('Tarea creada', 'Cerrar');
+        this.router.navigate(['/home']);
+      },
+      (error) => {
+        console.error('Error al crear la tarea:', error);
+      }
+    );
   }
-
 
   isValidField(field: string): boolean | null{
     return this.formulario.controls[field].errors
@@ -72,19 +107,6 @@ export class FormComponent implements OnInit {
   }
 
   isEditRoute(): boolean {
-    // Aquí debes implementar la lógica para verificar si estás en la ruta de edición
-    // Por ejemplo, si la ruta contiene '/edit', devuelve true; de lo contrario, devuelve false.
     return this.route.snapshot.url.some(segment => segment.path === 'edit');
-  }
-  saveTask() {
-    if (this.formulario.valid) {
-      const updatedTask: Task = this.formulario.value; // Obtén los datos modificados
-      // Lógica para guardar los cambios (por ejemplo, mediante un servicio)
-      // Implementa tu lógica aquí
-      console.log('Tarea modificada:', updatedTask);
-    } else {
-      console.log('El formulario no es válido. Verifica los campos.');
-    }
-    this.router.navigate(['/home']);
   }
 }

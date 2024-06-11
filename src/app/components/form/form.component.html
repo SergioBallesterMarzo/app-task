@@ -43,7 +43,10 @@
 
   <div style="display: flex; justify-content: center; align-items: center; height: 20vh;">
     <button type="submit" class="btn" style="margin-right: 50px;" [disabled]="!formulario.valid">Guardar</button>
-
     <button type="submit" class="btn" (click)="returntask()"  >Home</button>
   </div>
 </form>
+
+<pre>
+{{currentTask | json}}
+</pre>

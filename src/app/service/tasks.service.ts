@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, catchError, map, of } from 'rxjs';
+import { Observable, catchError, map, of, tap } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Task } from '../interface/task';
 
@@ -30,6 +30,11 @@ export class TasksService {
     .pipe(
       map(() => true),
     );
+  }
+
+  updateTask$(task: Task): Observable<Task[]>{
+    if ( !task.id) throw Error ('Id es necsaria');
+    return this.http.patch<Task[]>(`${this.URL}/tasks/${task.id}`, task)
   }
 
 }

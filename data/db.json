@@ -1,45 +1,27 @@
 {
   "tasks": [
     {
-      "id": "4",
-      "name": "Revisar código del proyecto",
-      "status": "Completada",
-      "employee": "María Gómez"
-    },
-    {
-      "id": "5",
-      "name": "Revisar código del proyecto",
-      "status": "En proceso",
-      "employee": "María Gómez"
-    },
-    {
-      "id": "6",
-      "name": "Revisar código del proyecto",
-      "status": "Completada",
-      "employee": "María Gómez"
-    },
-    {
-      "id": "7",
-      "name": "Revisar código del proyecto",
-      "status": "Completada",
-      "employee": "María Gómez"
-    },
-    {
       "id": "8",
       "name": "Revisar código del proyecto",
       "status": "En proceso",
       "employee": "María Gómez"
     },
     {
-      "id": "9",
-      "name": "Revisar código del proyecto",
-      "status": "Completada",
-      "employee": "María Gómez"
-    },
-    {
       "id": "bad9",
       "name": "Bton cambiar estado",
       "employee": "Sergio B",
+      "status": "Pendiente"
+    },
+    {
+      "id": "9",
+      "name": "Revisar código del proyecto",
+      "employee": "María Gómez",
+      "status": "En proceso"
+    },
+    {
+      "id": "0c9c",
+      "name": "hhhhh",
+      "employee": "hhhh",
       "status": "Pendiente"
     }
   ]

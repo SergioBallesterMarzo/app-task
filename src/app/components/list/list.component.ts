@@ -47,7 +47,8 @@ export class ListComponent implements OnInit {
             return "Completada";
 
     }
-}
+  }
+
 
   changetask(task: Task) {
     const changeEstatus = this.cambiarEstado(task.status)
@@ -66,9 +67,6 @@ export class ListComponent implements OnInit {
     );
   }
 
-  editTask(){
-    this.router.navigate(['/edit']);
-  }
 
   onDeleteTask(id: string): void {
     const snackbar = this.MatSnackBar.open("¿Estás seguro de que deseas eliminar esta tarea?", "Sí");

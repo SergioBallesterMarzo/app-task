@@ -1,4 +1,3 @@
 export const environment = {
-  production: true,
-  api: 'http://localhost:3000/tasks'
+  api: 'http://sergio-balles:3000/api'
 }
