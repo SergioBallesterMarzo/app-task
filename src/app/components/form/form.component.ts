@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -16,7 +16,7 @@ export class FormComponent implements OnInit {
   public tasks: Task[] = [];
   public formulario!: FormGroup;
 
-task:Task ={
+ task:Task ={
     id:'',
     status:'Pendiente' ,
     name: '',
@@ -31,8 +31,14 @@ task:Task ={
     private route: ActivatedRoute
   ) { }
 
+  get currentTask(): Task{
+    const task = this.formulario.value as Task
+    return task;
+  }
+
   ngOnInit(): void {
     this.formulario = this.formBuilder.group({
+      id:  [''],
       name:     ['', [Validators.required, Validators.minLength(3)]],
       employee: ['', [Validators.required,Validators.minLength(3)]],
       status:   [ '' ,[ Validators.required]]
@@ -50,47 +56,29 @@ task:Task ={
     })
   }
 
-
-  get currentTask(): Task{
-    const task = this.formulario.value as Task
-    return task;
-  }
   onSubmit() {
-    if (this.formulario.invalid) {
-      console.log('El formulario no es válido. Verifica los campos.');
-      return;
-    }
-    if (!this.currentTask.id) {
-    this.taskService.updateTask$(this.currentTask).subscribe(
-      (response) => {
-        console.log('Tarea Actualizada', response);
-        this.showSnackbar('Tarea Actualizada', 'Cerrar');
-        this.router.navigate(['/home']);
-      },
-      (error) => {
-        console.error('Error al actualizar la tarea:', error);
+   if (this.currentTask.id) {
+        this.taskService.updateTask$(this.currentTask).subscribe(
+            (response) => {
+                console.log('Tarea Actualizada', response);
+                this.showSnackbar('Tarea Actualizada', 'Cerrar');
+                this.router.navigate(['/home']);
+            }
+        );
       }
-    );
-  }
+      else{
+        const task = this.formulario.value
+        delete task.id
+        this.taskService.createTask$(task).subscribe(
+        (response) => {
+            console.log('Tarea creada:', response);
+            this.showSnackbar('Tarea creada', 'Cerrar');
+            this.router.navigate(['/home']);
+        },
+      );
+    }
   }
 
-  addTask() {
-    if (this.formulario.invalid) {
-      console.log('El formulario no es válido. Verifica los campos.');
-      return;
-    }
-    // Si el formulario es válido, envía la tarea al servicio
-    this.taskService.createTask$(this.formulario.value).subscribe(
-      (response) => {
-        console.log('Tarea creada:', response);
-        this.showSnackbar('Tarea creada', 'Cerrar');
-        this.router.navigate(['/home']);
-      },
-      (error) => {
-        console.error('Error al crear la tarea:', error);
-      }
-    );
-  }
 
   isValidField(field: string): boolean | null{
     return this.formulario.controls[field].errors

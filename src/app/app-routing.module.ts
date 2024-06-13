@@ -12,9 +12,6 @@ const routes: Routes = [
       {  path:'edit/:id', component:EditComponent},
       {  path:'**', redirectTo: 'home'}
 
-
-
-
 ];
 
 @NgModule({

@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, catchError, map, of, tap } from 'rxjs';
+import { Observable, catchError, delay, map, of, tap } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Task } from '../interface/task';
 
@@ -14,7 +14,8 @@ export class TasksService {
   }
 
   getAllTasks$(): Observable<Task[]>{
-    return this.http.get<Task[]>(`${this.URL}/tasks`)
+    return this.http.get<Task[]>(`${this.URL}/tasks`).pipe(
+      delay(1500))
   }
 
   getTaskById$(id: string): Observable<Task[]>{
@@ -25,16 +26,17 @@ export class TasksService {
     return this.http.post<Task[]>(`${this.URL}/tasks`, task)
   }
 
-  deleteTask$(id: string): Observable<boolean>{
-    return this.http.delete(`${this.URL}/tasks/${ id }`)
-    .pipe(
-      map(() => true),
-    );
-  }
-
   updateTask$(task: Task): Observable<Task[]>{
     if ( !task.id) throw Error ('Id es necsaria');
     return this.http.patch<Task[]>(`${this.URL}/tasks/${task.id}`, task)
+  }
+
+
+  deleteTask$(id: string): Observable<boolean>{
+    return this.http.delete(`${this.URL}/tasks/${id}`)
+    .pipe(
+      map(() => true),
+    );
   }
 
 }

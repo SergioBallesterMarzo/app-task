@@ -14,7 +14,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-
+import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +25,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     NavbarComponent,
     NewComponent,
     EditComponent,
-    LayoutPageComponent
+    LayoutPageComponent,
+    ConfirmDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +36,9 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     DragDropModule,
     FormsModule,
     ReactiveFormsModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatDialogModule,
+    MatProgressSpinnerModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

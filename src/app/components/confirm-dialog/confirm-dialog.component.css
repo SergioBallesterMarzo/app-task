@@ -1,0 +1,25 @@
+/* Estilos para el título h1 */
+mat-dialog-title {
+  font-size: 24px;
+  color: #333; /* Cambia el color según tus preferencias */
+}
+
+/* Estilos para el contenido del diálogo */
+mat-dialog-content p {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+/* Estilos para los botones */
+mat-dialog-actions button {
+  padding: 8px 16px;
+  background-color: #007bff; /* Cambia el color según tus preferencias */
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+/* Espacio entre los botones */
+mat-dialog-actions .spacer {
+  flex: 1;
+}

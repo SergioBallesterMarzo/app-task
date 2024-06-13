@@ -1,9 +1,12 @@
+
+
 <h1 *ngIf="isEditRoute(); else newTask">Editar Tarea</h1>
 <ng-template #newTask>
   <h1>Nueva Tarea</h1>
 </ng-template>
 <hr>
-<form [formGroup]="formulario" (ngSubmit)="addTask()">
+
+<form [formGroup]="formulario" (ngSubmit)="onSubmit()">
   <div class="form-group">
     <label for="status">Estado de la Tarea</label>
     <select class="form-control form-select"
@@ -42,8 +45,8 @@
   </div>
 
   <div style="display: flex; justify-content: center; align-items: center; height: 20vh;">
-    <button type="submit" class="btn" style="margin-right: 50px;" [disabled]="!formulario.valid">Guardar</button>
-    <button type="submit" class="btn" (click)="returntask()"  >Home</button>
+    <button type="submit"  class="btn" style="margin-right: 50px;" [disabled]="!formulario.valid">Guardar</button>
+    <button  type="button" class="btn" (click)="returntask()"  >Home</button>
   </div>
 </form>
 

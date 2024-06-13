@@ -2,10 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { TasksService } from '../../service/tasks.service';
 import { Task } from './../../interface/task';
 import { Router } from '@angular/router';
-import { MatSnackBar } from '@angular/material/snack-bar';
 import { TaskStateService } from 'src/app/service/task-state.service';
-import { finalize } from 'rxjs';
 import { Status } from '../../interface/task';
+import { ConfirmDialogComponent } from './../confirm-dialog/confirm-dialog.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-list',
@@ -16,19 +16,20 @@ export class ListComponent implements OnInit {
 
   public tasks: Task[] = [];
   selectedStatus: 'Pendiente' | 'En proceso' | 'Completada' = 'Pendiente'; // Valor inicial
-
+  public loading: boolean = true;
 
 
   constructor(
     public tasksService: TasksService,
     private taskStateService: TaskStateService,
     private router: Router,
-    private MatSnackBar: MatSnackBar
+    private dialog: MatDialog
     ){}
 
   ngOnInit(): void {
     this.tasksService.getAllTasks$()
     .subscribe(tasks =>{
+      this.loading = false;
       this.tasks = tasks
     })
     this.taskStateService.tasks$.subscribe((tasks) => {
@@ -69,22 +70,21 @@ export class ListComponent implements OnInit {
 
 
   onDeleteTask(id: string): void {
-    const snackbar = this.MatSnackBar.open("¿Estás seguro de que deseas eliminar esta tarea?", "Sí");
-    snackbar.onAction().subscribe(() => {
-        this.tasksService.deleteTask$(id).subscribe(
-            () => {
-                this.MatSnackBar.open("¡Tarea eliminada correctamente!", "Cerrar");
-                this.tasksService.getAllTasks$().subscribe(
-                    (updatedTasks) => {
-                        this.tasks = updatedTasks;
-                    },
-                );
-            },
-            (error) => {
-                this.MatSnackBar.open("Error al eliminar la tarea: " + error.message, "Cerrar");
-            }
-        );
+    const dialogRef = this.dialog.open(ConfirmDialogComponent, {
+      data: {
+        message: '¿Estás seguro de que deseas eliminar esta tarea?', // Personaliza el mensaje de confirmación
+      },
     });
-}
 
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result === true) {
+        // El usuario confirmó la eliminación
+        this.tasksService.deleteTask$(id).subscribe(() => {
+          this.tasksService.getAllTasks$().subscribe((updatedTasks) => {
+            this.tasks = updatedTasks;
+          });
+        });
+      }
+    });
+  }
 }
