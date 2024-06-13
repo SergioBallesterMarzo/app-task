@@ -2,6 +2,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { switchMap } from 'rxjs';
 import { Task} from 'src/app/interface/task';
 import { TasksService } from 'src/app/service/tasks.service';
@@ -28,7 +29,8 @@ export class FormComponent implements OnInit {
     private formBuilder: FormBuilder,
     private snackBar: MatSnackBar,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private spinner: NgxSpinnerService
   ) { }
 
   get currentTask(): Task{
@@ -37,6 +39,11 @@ export class FormComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.spinner.show();
+    setTimeout(() => {
+      this.spinner.hide();
+    }, 2000);
+
     this.formulario = this.formBuilder.group({
       id:  [''],
       name:     ['', [Validators.required, Validators.minLength(3)]],
